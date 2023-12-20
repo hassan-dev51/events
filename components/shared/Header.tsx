@@ -7,12 +7,12 @@ import {
 } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import React, { Suspense } from "react";
+
 import { Button } from "../ui/button";
+import { Skeleton } from "../ui/skeleton";
+
 import NavItems from "./NavItems";
 import MobileNav from "./MobileNav";
-import { Skeleton } from "../ui/skeleton";
-import Loading from "../../app/(root)/loading";
 
 const Header = () => {
   return (
