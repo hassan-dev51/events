@@ -34,15 +34,15 @@ const Header = () => {
         </SignedIn>
 
         <div className="flex w-32 justify-end gap-3">
-          <ClerkLoading>
-            <Skeleton className="rounded-full w-[32px] h-[32px]" />
-          </ClerkLoading>
-          <ClerkLoaded>
-            <SignedIn>
+          <SignedIn>
+            <ClerkLoading>
+              <Skeleton className="rounded-full w-[32px] h-[32px]" />
+            </ClerkLoading>
+            <ClerkLoaded>
               <UserButton afterSignOutUrl="/" />
               <MobileNav />
-            </SignedIn>
-          </ClerkLoaded>
+            </ClerkLoaded>
+          </SignedIn>
 
           {/* when user is not signed in this button will be appeared */}
           <SignedOut>

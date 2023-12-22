@@ -3,6 +3,8 @@ import Search from "@/components/Search";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export default function Home() {
   return (
