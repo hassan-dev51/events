@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const mongodb_uri = process.env.MONGO_DB_URI;
 
-// we will cache our database we do it to reduce load on database.
+// we will cache our database we do it to reduce load on database.because each invocation in serveless function could result in new connection to the database.
 
 let cached = (global as any).mongoose || { conn: null, promise: null };
 
