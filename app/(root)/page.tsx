@@ -1,11 +1,11 @@
 import CategoryFilter from "@/components/CategoryFilter";
 import Search from "@/components/Search";
+import ImageLoader from "@/components/loaders/ImageLoader";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
-import Loading from "./loading";
-
+import { Suspense, useEffect, useRef } from "react";
 export default function Home() {
   return (
     <>
@@ -24,13 +24,16 @@ export default function Home() {
             </Button>
           </div>
 
-          <Image
-            src="/assets/images/hero.png"
-            alt="hero"
-            width={1000}
-            height={1000}
-            className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]"
-          />
+          <Suspense fallback={<ImageLoader />}>
+            <Image
+              src={"/assets/images/hero.png"}
+              alt="hero"
+              width={1000}
+              layout="fixed"
+              height={1000}
+              className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]"
+            />
+          </Suspense>
         </div>
       </section>
 
@@ -43,7 +46,9 @@ export default function Home() {
         </h2>
 
         <div className="flex w-full flex-col gap-5 md:flex-row">
-          <Search />
+          <Suspense fallback={<ImageLoader />}>
+            <Search />
+          </Suspense>
           <CategoryFilter />
         </div>
 
